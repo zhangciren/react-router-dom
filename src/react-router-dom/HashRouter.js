@@ -25,7 +25,12 @@ export default class HashRouter extends Component {
     }
     render() {
         let value = {
-            location: this.state.location
+            location: this.state.location,
+            history: {
+                push(to){
+                    window.location.hash = to // 实现路由跳转的核心
+                }
+            }
         }
         return (
             <Provider value={value}>
