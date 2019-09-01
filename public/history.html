@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>React App</title>
+  </head>
+  <body>
+      <a onclick="push('/a')">去a</a>
+      <a onclick="push('/b')">去b</a>
+      <script>
+          function push(path) {
+              history.pushState({p: path}, null, path)
+          }
+          window.addEventListener('popstate',(e) => {
+              // 点浏览器中的前进后退才能出发此监听
+              console.log(history.length)
+              console.log(e)
+          })
+      </script>
+  </body>
+</html>
